@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bodegazos.store | Promociones y Liquidaciones</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"
+  />
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="assets/Logo.png" alt="Bodegazos Logo">
+      </div>
+      <ul class="nav-links">
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#ofertas">Ofertas</a></li>
+        <li><a href="#marcas">Marcas</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <div class="nav-buttons">
+        <a href="#ofertas" class="btn-ofertas">Ver ofertas</a>
+        <a href="#" id="btnSeguimiento" class="btn-seguimiento">Seguimiento</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="falling-icons"></div>
+    <div class="hero-text">
+      <h1>PROMOCIONES TODO EL AÑO</h1>
+      <p>Aparta desde ya tus regalos de Diciembre</p>
+      <a href="#ofertas" class="btn-hero">Ver ofertas</a>
+    </div>
+  </section>
+
+  <!-- SECCIÓN: MARCAS ALIADAS -->
+  <section class="marcas-section" id="marcas">
+    <h2>Contamos con productos de marcas reconocidas</h2>
+    <div class="marcas-scroll">
+      <div class="marcas-track">
+        <div class="brand-node" data-name="Bancolombia" data-desc="Banca" data-link="#">
+          <img src="assets/logo_bancolombia.png" alt="Bancolombia">
+        </div>
+        <div class="brand-node" data-name="Compre Colombia" data-desc="Comercio local" data-link="#">
+          <img src="assets/logo_compreco.png" alt="Compre Colombia">
+        </div>
+        <div class="brand-node" data-name="Éxito" data-desc="Moda y deporte" data-link="#">
+          <img src="assets/logo_exito.png" alt="Éxito">
+        </div>
+        <div class="brand-node" data-name="Falabella" data-desc="Electrodomésticos de calidad" data-link="#">
+          <img src="assets/logo_falabella.png" alt="Falabella">
+        </div>
+        <div class="brand-node" data-name="Mercado Libre" data-desc="Electrodomésticos de calidad" data-link="#">
+          <img src="assets/logo_mercadolibre.png" alt="Mercado Libre">
+        </div>
+        <div class="brand-node" data-name="Nike" data-desc="Moda y deporte" data-link="#">
+          <img src="assets/logo_nike.png" alt="Nike">
+        </div>
+        <div class="brand-node" data-name="Motorola" data-desc="Smartphones" data-link="#">
+          <img src="assets/logo_motorola.png" alt="Motorola">
+        </div>
+        <div class="brand-node" data-name="Asus" data-desc="Tecnología e innovación" data-link="#">
+          <img src="assets/logo_asus.png" alt="Asus">
+        </div>
+        <div class="brand-node" data-name="HP" data-desc="Tecnología e innovación" data-link="#">
+          <img src="assets/logo_hp.png" alt="HP">
+        </div>
+        <div class="brand-node" data-name="Roku" data-desc="Tecnología e innovación" data-link="#">
+          <img src="assets/logo_roku.png" alt="Roku">
+        </div>
+        <div class="brand-node" data-name="Logitech" data-desc="Tecnología e innovación" data-link="#">
+          <img src="assets/logo_logitech.png" alt="Logitech">
+        </div>
+        <div class="brand-node" data-name="Interrapidisimo" data-desc="Logística" data-link="#">
+          <img src="assets/logo_interrapidisimo.png" alt="Interrapidisimo">
+        </div>
+        <div class="brand-node" data-name="H&M" data-desc="Moda y deporte" data-link="#">
+          <img src="assets/logo_H&M.png" alt="H&M">
+        </div>
+        <div class="brand-node" data-name="Totto" data-desc="Moda y deporte" data-link="#">
+          <img src="assets/logo_totto.png" alt="Totto">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tooltip dinámico -->
+  <div class="brand-tooltip" id="brandTooltip">
+    <h3></h3>
+    <p></p>
+    <a href="index.html" class="btn-tooltip">Ver productos</a>
+  </div>
+
+  <!-- Modal de marca -->
+  <div class="brand-modal" id="brandModal">
+    <div class="brand-modal-content">
+      <span class="close-modal">&times;</span>
+      <img src="" alt="Logo marca" class="modal-logo">
+      <h3></h3>
+      <p></p>
+      <a href="#" class="btn-modal">Ver productos</a>
+    </div>
+  </div>
+
+  <!-- OFERTAS -->
+  <main>
+    <section class="offers-section" id="ofertas">
+      <h2>🔥 Ofertas en tendencia</h2>
+      <p>Promos limitadas, ¡no te quedes sin la tuya!</p>
+
+      <div class="offer-cards">
+        <div class="offer-card">
+          <img src="assets/oferta1.png" alt="Laptop">
+          <h3>Electrodomésticos de primer nivel</h3>
+          <p>Hasta 70% off en electrodomésticos de nivel C</p>
+          <button class="buy-btn">Comprar ahora</button>
+        </div>
+
+        <div class="offer-card">
+          <img src="assets/oferta2.png" alt="Tecnología">
+          <h3>Ofertas en tecnología</h3>
+          <p>Smartphones, tablets y más con súper descuentos.<br>60% en productos reacondicionados</p>
+          <button class="buy-btn">Comprar ahora</button>
+        </div>
+
+        <div class="offer-card">
+          <img src="assets/oferta3.png" alt="Juguetes">
+          <h3>Ropa y calzado</h3>
+          <p>Apoya marcas locales y nacionales y ahorra hasta un 40%.</p>
+          <button class="buy-btn">Comprar ahora</button>
+        </div>
+
+        <div class="offer-card">
+          <img src="assets/oferta4.png" alt="Juguetes">
+          <h3>Mistery Box</h3>
+          <p>¿Te sientes con suerte?<br>Escoge un nivel y llévate sorpresas únicas</p>
+          <button class="buy-btn">Comprar ahora</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL DE NIVELES -->
+  <div class="modal" id="modal-niveles">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>Selecciona tu nivel de producto</h3>
+      <div class="nivel">
+        <h4>Nivel 1</h4>
+        <p>Sin garantía, calidad media y tendencia baja.<br><br><strong>COP $70.000</strong></p>
+        <button class="nivel-btn" data-url="form.html">Quiero este</button>
+      </div>
+      <div class="nivel">
+        <h4>Nivel 2</h4>
+        <p>Producto con garantía limitada, buena calidad y media demanda.<br><br><strong>COP $150.000</strong></p>
+        <button class="nivel-btn" data-url="form.html">Quiero este</button>
+      </div>
+      <div class="nivel">
+        <h4>Nivel 3</h4>
+        <p>Producto nuevo, con garantía completa y alta tendencia.<br><br><strong>COP $350.000</strong></p>
+        <button class="nivel-btn" data-url="form.html">Quiero este</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORMULARIO DE COMPRA -->
+  <div id="formModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeForm">&times;</span>
+      <h3>Completa tus datos</h3>
+      <form id="purchaseForm">
+        <div class="form-group"><input type="text" id="nombre" placeholder="Nombre completo" required /></div>
+        <div class="form-group"><input type="email" id="correo" placeholder="Correo electrónico" required /></div>
+        <div class="form-group"><input type="text" id="direccion" placeholder="Dirección" required /></div>
+        <div class="form-group">
+          <select id="ciudad" required>
+            <option value="">Selecciona tu ciudad</option>
+            <option>Bogotá</option><option>Medellín</option><option>Cali</option>
+            <option>Barranquilla</option><option>Cartagena</option><option>Bucaramanga</option>
+            <option>Manizales</option><option>Pereira</option><option>Santa Marta</option><option>Cúcuta</option>
+          </select>
+        </div>
+        <div class="form-group"><input type="tel" id="whatsapp" placeholder="Número de WhatsApp" required /></div>
+        <div class="form-group">
+          <select id="tipoDocumento" required>
+            <option value="">Tipo de documento</option>
+            <option>Cédula de ciudadanía</option><option>Cédula de extranjería</option>
+            <option>Pasaporte</option><option>Tarjeta de identidad</option>
+          </select>
+        </div>
+        <div class="form-group"><input type="text" id="documento" placeholder="Número de documento" required /></div>
+        <button type="submit" id="enviarBtn" disabled class="buy-btn">Enviar solicitud</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- CÓMO FUNCIONA -->
+  <section class="how-it-works" id="como-funciona">
+    <div class="container">
+      <h2>🛍️ ¿Cómo funciona?</h2>
+      <p class="intro">
+        En <strong>Bodegazos.store</strong> comprar es facilito y rápido.  
+        Solo sigue estos pasos y descubre productos increíbles a precios que no vas a creer.
+      </p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-header"><span class="icon">🛒</span><h3>Paso 1: Selecciona el campo de promoción</h3></div>
+          <div class="step-content">
+            <p>Escoge la categoría que más te llame la atención: <strong>Electrodomésticos, Celulares, Ropa o Mystery Box</strong>.</p>
+            <br>
+            <p>Al escoger tu categoría y nivel podrás obtener un producto al azar en tu hogar.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-header"><span class="icon">🎯</span><h3>Paso 2: Escoge tu nivel de promoción</h3></div>
+          <div class="step-content">
+            <ul>
+              <li><strong>Nivel 1:</strong> Sin garantía, calidad media y tendencia baja.<em><strong>Valor: COP $70.000</strong></em></li>
+              <li><strong>Nivel 2:</strong> Producto con garantía limitada, buena calidad y media demanda.<em><strong>Valor: COP $150.000</strong></em></li>
+              <li><strong>Nivel 3:</strong> Producto nuevo, con garantía completa y alta tendencia.<em><strong>Valor: COP $350.000</strong></em></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-header"><span class="icon">📦</span><h3>Paso 3: Llena tus datos de envío</h3></div>
+          <div class="step-content">
+            <p>Completa tus datos y recuerda que el envío tiene un costo adicional de <strong>COP $20.000</strong>.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-header"><span class="icon">🚚</span><h3>Paso 4: Consulta tu número de tracking</h3></div>
+          <div class="step-content">
+            <p>Recibirás un número de seguimiento para consultar el estado de tu pedido.<br><em>Los envíos tardan 2 a 3 días hábiles en ciudades principales y 5 a 7 en zonas lejanas.</em></p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-header"><span class="icon">⭐</span><h3>Paso 5: Califica tu experiencia</h3></div>
+          <div class="step-content">
+            <p>Al recibir tu producto, te llegará una encuesta de satisfacción para que nos cuentes qué tan contento quedaste con tu compra.</p>
+          </div>
+        </div>
+
+          <div class="step">
+          <div class="step-header"><span class="icon">🤝</span><h3>¿Qué es Bodegazos.store?</h3></div>
+          <div class="step-content">
+            <p>Somos un emprendimiento colmombiano que busca promover la economía circular, luchar contra la obsolecencia programada.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="banner-solidario">
+    <div class="solidario-content">
+      <div class="solidario-icon">💙</div>
+      <div class="solidario-text">
+        <h3>¡Cada compra cuenta!</h3>
+        <p>En <strong>Bodegazos.store</strong>, destinamos un porcentaje de cada venta a <span>causas benéficas y programas sociales</span> que apoyan comunidades en Colombia.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>Documentos legales</h4>
+        <ul>
+          <li><a href="assets/POLÍTICA DE PRIVACIDAD DE BODEGAZOS.STORE.pdf" target="_blank">Política de Privacidad</a></li>
+          <li><a href="assets/TÉRMINOS Y CONDICIONES DE USO.pdf" target="_blank">Términos y Condiciones</a></li>
+          <li><a href="assets/POLÍTICA DE DEVOLUCIONES Y REEMBOLSOS - Proton Docs.pdf" target="_blank">Política de Devoluciones</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Trabaja con nosotros</h4>
+        <p>¿Te gustaría hacer parte de <strong>Bodegazos.store</strong>?<br><br>Buscamos fundacionnes que nos apoyen en nuestra causa<br>Escríbenos a <a href="mailto:bodegazos.store@protomail.com">bodegazos.store@protomail.com</a></p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Síguenos</h4>
+        <div class="social-links">
+          <a href="https://facebook.com/bodegazos.store" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 <strong>Bodegazos.store</strong> - Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+  <!-- ==================== MODAL SEGUIMIENTO ==================== -->
+  <div id="modal-seguimiento" class="modal-seguimiento">
+    <div class="modal-seguimiento-content">
+      <span class="close-seguimiento">&times;</span>
+      <h2>Consulta tu pedido</h2>
+      <input type="text" id="codigoSeguimiento" placeholder="Ingresa tu número de pedido o guía" />
+      <button id="consultarSeguimiento">Consultar</button>
+      <div id="resultadoSeguimiento"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
