@@ -7,8 +7,34 @@ document.addEventListener("DOMContentLoaded", () => {
   if (newsletter) {
     newsletter.addEventListener("submit", function (e) {
       e.preventDefault();
-      alert("¡Gracias por suscribirte a Bodegazos.store!");
+      mostrarMensaje("¡Gracias por suscribirte a Bodegazos.store! 💥");
       this.reset();
+    });
+  }
+
+  // ==================== MENSAJE BONITO PERSONALIZADO ====================
+  function mostrarMensaje(texto) {
+    const msg = document.createElement("div");
+    msg.className = "mensaje-bonito";
+    msg.innerHTML = `<p>${texto}</p>`;
+    document.body.appendChild(msg);
+    setTimeout(() => msg.classList.add("visible"), 100);
+    setTimeout(() => {
+      msg.classList.remove("visible");
+      setTimeout(() => msg.remove(), 500);
+    }, 3000);
+  }
+
+  // ==================== MENÚ HAMBURGUESA ====================
+  const toggle = document.getElementById("menu-toggle");
+  const links = document.getElementById("nav-links");
+  const buttons = document.querySelector(".nav-buttons");
+
+  if (toggle) {
+    toggle.addEventListener("click", () => {
+      links.classList.toggle("active");
+      buttons.classList.toggle("active");
+      toggle.classList.toggle("open");
     });
   }
 
@@ -126,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeForm = document.getElementById("closeForm");
   const purchaseForm = document.getElementById("purchaseForm");
   const enviarBtn = document.getElementById("enviarBtn");
-  const whatsappLink = "https://wa.me/573001112233";
+  const whatsappLink = "https://wa.me/573023630113?text=" + encodeURIComponent("Hola, Acabo de escoger mi plan y me gustaría pagar para asegurar mi compra antes de que los productos se acaben");
 
   if (quieroBtns.length && formModal && purchaseForm) {
     quieroBtns.forEach(btn => {
@@ -149,10 +175,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     purchaseForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      alert("Trasladando a un asesor de compra...");
+      mostrarMensaje("Dale siguiente para hablar con un asesor por WhatsApp y finalizar tu compra 💬");
       formModal.classList.remove("show");
       modalNiveles.classList.remove("show");
-      setTimeout(() => window.location.href = whatsappLink, 1500);
+      setTimeout(() => window.location.href = whatsappLink, 1800);
     });
   }
 

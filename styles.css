@@ -28,7 +28,7 @@ header {
   padding: 1rem 5%;
 }
 
-.navbar .logo img {
+.logo img {
   height: 45px;
 }
 
@@ -77,6 +77,59 @@ header {
   background: #00d4ff;
   color: #fff;
 }
+
+/* ==================== MENÚ HAMBURGUESA ==================== */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  background: #00d4ff;
+  border-radius: 2px;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .nav-links,
+  .nav-buttons {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background: #0c0c0c;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    padding: 1rem 0;
+    gap: 1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  .nav-links.active,
+  .nav-buttons.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .navbar {
+    padding: 1rem 1.5rem;
+  }
+
+  .nav-links li a {
+    font-size: 1.1rem;
+  }
+}
+
 
 /* ==================== HERO SECTION ==================== */
 .hero {
@@ -1239,4 +1292,3 @@ header {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
 }
-
