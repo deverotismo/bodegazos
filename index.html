@@ -3,50 +3,89 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bodegazos.store | Promociones y Liquidaciones</title>
+  <title>Bodegazos.store | Promos Navideñas</title>
   <link rel="stylesheet" href="styles.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"
-  />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
 </head>
 <body>
-<header>
+
+<!-- ========================= POPUP INICIAL ========================= -->
+<div id="popup-inicial" class="popup-overlay">
+  <div class="popup-box">
+    <h2>🎄 ¡Aprovecha la promo! 🎁</h2>
+    <p>Habla con un asesor y aparta tus regalos con descuentos de hasta el 50% antes de que se acabe.</p>
+    <a target="_blank" href="https://wa.me/573003023630113?text=Hola,%20quiero%20hablar%20con%20un%20asesor!" class="btn-wp">Hablar con asesor</a>
+    <span id="cerrarPopup" class="cerrar-popup">&times;</span>
+  </div>
+</div>
+
+<!-- ========================= POPUP FLOTANTE ========================= -->
+<div id="popup-flotante" class="popup-flotante">
+  <p>⚠️ Quedan <span id="contadorPromos">5000</span> promociones disponibles</p>
+</div>  
+
+<div id="compraNotificacion" class="compra-notificacion oculto">
+  <div class="contenido">
+    <p id="textoCompra"></p>
+    <a id="ctaCompra" target="_blank">Comprar ahora</a>
+  </div>
+</div>
+
+
+<!-- ========================= HEADER ========================= -->
+<header class="navbar-fixed">
   <nav class="navbar">
+    
     <div class="logo">
       <img src="assets/Logo.png" alt="Bodegazos Logo">
     </div>
 
-    <!-- Botón menú hamburguesa -->
-    <div class="menu-toggle" id="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+    <button id="btnAbrirSeguimiento" class="btn-seguimiento">
+      📦 Seguir pedido
+    </button>
 
-    <ul class="nav-links" id="nav-links">
-      <li><a href="#">Inicio</a></li>
-      <li><a href="#ofertas">Ofertas</a></li>
-      <li><a href="#marcas">Marcas</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-
-    <div class="nav-buttons">
-      <a href="#ofertas" class="btn-ofertas">Ver ofertas</a>
-      <a href="#" id="btnSeguimiento" class="btn-seguimiento">Seguimiento</a>
-    </div>
   </nav>
 </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="falling-icons"></div>
-    <div class="hero-text">
-      <h1>PROMOCIONES TODO EL AÑO</h1>
-      <p>Aparta desde ya tus regalos de Diciembre</p>
-      <a href="#ofertas" class="btn-hero">Ver ofertas</a>
+<!-- ========================= MODAL DE SEGUIMIENTO ========================= -->
+<div id="modal-seguimiento" class="modal-seguimiento">
+  <div class="modal-seguimiento-content">
+    <span class="close-seguimiento">&times;</span>
+    <h2>Consulta tu pedido</h2>
+    <input type="text" id="codigoSeguimiento" placeholder="Ingresa tu número de pedido o guía" />
+    <button id="consultarSeguimiento">Consultar</button>
+    <div id="resultadoSeguimiento"></div>
+  </div>
+</div>
+
+
+<!-- ========================= SECCIÓN PROBLEMA ========================= -->
+<section class="section-problema">
+  <h2>🎅 ¿No te alcanza para los regalos de Navidad?</h2>
+  <p class="texto-aux">Aprovecha antes de que la promoción termine:</p>
+
+  <div class="contador-box">
+    <h3>La oferta termina en:</h3>
+    <div id="contadorNavidad" class="contador">
+      <span><strong id="dias">00</strong> días</span>
+      <span><strong id="horas">00</strong> h</span>
+      <span><strong id="minutos">00</strong> min</span>
+      <span><strong id="segundos">00</strong> s</span>
     </div>
-  </section>
+  </div>
+  
+</section>
+
+<!-- ========================= SECCIÓN SOLUCIÓN ========================= -->
+<section class="section-solucion">
+  <h2>🎁 La solución es Bodegazos</h2>
+  <p>Promociones desde <strong>$70.000 COP</strong> en productos sorpresa de grandes marcas.</p>
+  <p class="texto-mini">Al hacer clic verás el catálogo de productos directamente en WhatsApp.</p>
+
+  <a href="https://wa.me/573003023630113?text=Hola,%20¿Qué%20productos%20puedo%20ganar?" target="_blank" class="btn-wp-large">
+    Ver catálogo en WhatsApp
+  </a>
+</section>
 
   <!-- SECCIÓN: MARCAS ALIADAS -->
   <section class="marcas-section" id="marcas">
@@ -99,178 +138,31 @@
     </div>
   </section>
 
-  <!-- Tooltip dinámico -->
-  <div class="brand-tooltip" id="brandTooltip">
-    <h3></h3>
-    <p></p>
-    <a href="index.html" class="btn-tooltip">Ver productos</a>
-  </div>
+<!-- ========================= SECCIÓN BENEFICIOS ========================= -->
+<section class="section-beneficios">
+  <h2>💡 Beneficios & Innovación</h2>
 
-  <!-- Modal de marca -->
-  <div class="brand-modal" id="brandModal">
-    <div class="brand-modal-content">
-      <span class="close-modal">&times;</span>
-      <img src="" alt="Logo marca" class="modal-logo">
-      <h3></h3>
-      <p></p>
-      <a href="#" class="btn-modal">Ver productos</a>
-    </div>
-  </div>
+  <ul class="benef-list">
+    <li>🎄 Acceso a promociones reales de grandes marcas.</li>
+    <li>💸 Puedes revender lo que recibas y generar ganancias extra.</li>
+    <li>🎁 Productos siempre en tendencia según la temporada.</li>
+  </ul>
+</section>
 
-  <!-- OFERTAS -->
-  <main>
-    <section class="offers-section" id="ofertas">
-      <h2>🔥 Ofertas en tendencia</h2>
-      <p>Promos limitadas, ¡no te quedes sin la tuya!</p>
+<!-- ========================= CTA FINAL ========================= -->
+<section class="section-cta">
+  <a href="https://wa.me/573003023630113?text=Hola,%20¿Cómo%20puedo%20pagar?" class="btn-wp-cta" target="_blank">
+    ¡Habla con un asesor y haz tu pago!
+  </a>
+</section>
 
-      <div class="offer-cards">
-        <div class="offer-card">
-          <img src="assets/oferta1.png" alt="Laptop">
-          <h3>Electrodomésticos de primer nivel</h3>
-          <p>Hasta 70% off en electrodomésticos de nivel C</p>
-          <button class="buy-btn">Comprar ahora</button>
-        </div>
+<!-- ========================= GARANTÍA ========================= -->
+<section class="section-garantia">
+  <h2>🔒 Garantía Bodegazos</h2>
+  <p>Si no estás satisfecho con tu producto, te devolvemos el dinero o te damos crédito para otra compra.</p>
+</section>
 
-        <div class="offer-card">
-          <img src="assets/oferta2.png" alt="Tecnología">
-          <h3>Ofertas en tecnología</h3>
-          <p>Smartphones, tablets y más con súper descuentos.<br>60% en productos reacondicionados</p>
-          <button class="buy-btn">Comprar ahora</button>
-        </div>
-
-        <div class="offer-card">
-          <img src="assets/oferta3.png" alt="Juguetes">
-          <h3>Ropa y calzado</h3>
-          <p>Apoya marcas locales y nacionales y ahorra hasta un 40%.</p>
-          <button class="buy-btn">Comprar ahora</button>
-        </div>
-
-        <div class="offer-card">
-          <img src="assets/oferta4.png" alt="Juguetes">
-          <h3>Mistery Box</h3>
-          <p>¿Te sientes con suerte?<br>Escoge un nivel y llévate sorpresas únicas</p>
-          <button class="buy-btn">Comprar ahora</button>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- MODAL DE NIVELES -->
-  <div class="modal" id="modal-niveles">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h3>Selecciona tu nivel de producto</h3>
-      <div class="nivel">
-        <h4>Nivel 1</h4>
-        <p>Sin garantía, calidad media y tendencia baja.<br><br><strong>COP $70.000</strong></p>
-        <button class="nivel-btn" data-url="form.html">Quiero este</button>
-      </div>
-      <div class="nivel">
-        <h4>Nivel 2</h4>
-        <p>Producto con garantía limitada, buena calidad y media demanda.<br><br><strong>COP $150.000</strong></p>
-        <button class="nivel-btn" data-url="form.html">Quiero este</button>
-      </div>
-      <div class="nivel">
-        <h4>Nivel 3</h4>
-        <p>Producto nuevo, con garantía completa y alta tendencia.<br><br><strong>COP $350.000</strong></p>
-        <button class="nivel-btn" data-url="form.html">Quiero este</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- FORMULARIO DE COMPRA -->
-  <div id="formModal" class="modal">
-    <div class="modal-content">
-      <span class="close" id="closeForm">&times;</span>
-      <h3>Completa tus datos</h3>
-      <form id="purchaseForm">
-        <div class="form-group"><input type="text" id="nombre" placeholder="Nombre completo" required /></div>
-        <div class="form-group"><input type="email" id="correo" placeholder="Correo electrónico" required /></div>
-        <div class="form-group"><input type="text" id="direccion" placeholder="Dirección" required /></div>
-        <div class="form-group">
-          <select id="ciudad" required>
-            <option value="">Selecciona tu ciudad</option>
-            <option>Bogotá</option><option>Medellín</option><option>Cali</option>
-            <option>Barranquilla</option><option>Cartagena</option><option>Bucaramanga</option>
-            <option>Manizales</option><option>Pereira</option><option>Santa Marta</option><option>Cúcuta</option>
-          </select>
-        </div>
-        <div class="form-group"><input type="tel" id="whatsapp" placeholder="Número de WhatsApp" required /></div>
-        <div class="form-group">
-          <select id="tipoDocumento" required>
-            <option value="">Tipo de documento</option>
-            <option>Cédula de ciudadanía</option><option>Cédula de extranjería</option>
-            <option>Pasaporte</option><option>Tarjeta de identidad</option>
-          </select>
-        </div>
-        <div class="form-group"><input type="text" id="documento" placeholder="Número de documento" required /></div>
-        <button type="submit" id="enviarBtn" disabled class="buy-btn">Enviar solicitud</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- CÓMO FUNCIONA -->
-  <section class="how-it-works" id="como-funciona">
-    <div class="container">
-      <h2>🛍️ ¿Cómo funciona?</h2>
-      <p class="intro">
-        En <strong>Bodegazos.store</strong> comprar es facilito y rápido.  
-        Solo sigue estos pasos y descubre productos increíbles a precios que no vas a creer.
-      </p>
-
-      <div class="steps">
-        <div class="step">
-          <div class="step-header"><span class="icon">🛒</span><h3>Paso 1: Selecciona el campo de promoción</h3></div>
-          <div class="step-content">
-            <p>Escoge la categoría que más te llame la atención: <strong>Electrodomésticos, Celulares, Ropa o Mystery Box</strong>.</p>
-            <br>
-            <p>Al escoger tu categoría y nivel podrás obtener un producto al azar en tu hogar.</p>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-header"><span class="icon">🎯</span><h3>Paso 2: Escoge tu nivel de promoción</h3></div>
-          <div class="step-content">
-            <ul>
-              <li><strong>Nivel 1:</strong> Sin garantía, calidad media y tendencia baja.<em><strong>Valor: COP $70.000</strong></em></li>
-              <li><strong>Nivel 2:</strong> Producto con garantía limitada, buena calidad y media demanda.<em><strong>Valor: COP $150.000</strong></em></li>
-              <li><strong>Nivel 3:</strong> Producto nuevo, con garantía completa y alta tendencia.<em><strong>Valor: COP $350.000</strong></em></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-header"><span class="icon">📦</span><h3>Paso 3: Llena tus datos de envío</h3></div>
-          <div class="step-content">
-            <p>Completa tus datos y recuerda que el envío tiene un costo adicional de <strong>COP $20.000</strong>.</p>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-header"><span class="icon">🚚</span><h3>Paso 4: Consulta tu número de tracking</h3></div>
-          <div class="step-content">
-            <p>Recibirás un número de seguimiento para consultar el estado de tu pedido.<br><em>Los envíos tardan 2 a 3 días hábiles en ciudades principales y 5 a 7 en zonas lejanas.</em></p>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-header"><span class="icon">⭐</span><h3>Paso 5: Califica tu experiencia</h3></div>
-          <div class="step-content">
-            <p>Al recibir tu producto, te llegará una encuesta de satisfacción para que nos cuentes qué tan contento quedaste con tu compra.</p>
-          </div>
-        </div>
-
-          <div class="step">
-          <div class="step-header"><span class="icon">🤝</span><h3>¿Qué es Bodegazos.store?</h3></div>
-          <div class="step-content">
-            <p>Somos un emprendimiento colmombiano que busca promover la economía circular, luchar contra la obsolecencia programada.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
+<!-- === Banner fundaciones === -->
   <section class="banner-solidario">
     <div class="solidario-content">
       <div class="solidario-icon">💙</div>
@@ -310,18 +202,7 @@
       <p>© 2025 <strong>Bodegazos.store</strong> - Todos los derechos reservados</p>
     </div>
   </footer>
-
-  <!-- ==================== MODAL SEGUIMIENTO ==================== -->
-  <div id="modal-seguimiento" class="modal-seguimiento">
-    <div class="modal-seguimiento-content">
-      <span class="close-seguimiento">&times;</span>
-      <h2>Consulta tu pedido</h2>
-      <input type="text" id="codigoSeguimiento" placeholder="Ingresa tu número de pedido o guía" />
-      <button id="consultarSeguimiento">Consultar</button>
-      <div id="resultadoSeguimiento"></div>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+  
+<script src="script.js"></script>
 </body>
 </html>
