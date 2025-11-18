@@ -148,47 +148,50 @@ steps.forEach(step => {
   const elemento = document.getElementById("contadorPromos");
   if (!elemento) return;
 
-  const fechaFinal = new Date("2025-12-27T23:59:59").getTime();
+  const PASO_MS = 3000; // Cada 3 segundos
+  const STOCK_INICIAL = 864000; // Cambia tu stock inicial real
+  const KEY_STOCK = "stockActual";
+  const KEY_LAST_UPDATE = "ultimaActualizacion";
 
-  // ——— Stock fijo escogido por ti ———
-  const STOCK_INICIAL_FIJO = 864000; // <-- CAMBIA ESTE NÚMERO A TU STOCK REAL
-
-  // Guardamos el stock inicial solo la primera vez
-  let valorInicial = STOCK_INICIAL_FIJO;
-    localStorage.setItem("stockInicialFijo", valorInicial);
-
-  if (!valorInicial) {
-    valorInicial = STOCK_INICIAL_FIJO;
-    localStorage.setItem("stockInicialFijo", valorInicial);
-  } else {
-    valorInicial = parseInt(valorInicial);
+  // Obtener stock guardado o iniciar nuevo
+  let stock = parseInt(localStorage.getItem(KEY_STOCK));
+  if (isNaN(stock)) {
+    stock = STOCK_INICIAL;
+    localStorage.setItem(KEY_STOCK, stock);
   }
 
-  // ——— Calculamos la velocidad automática ———
+  // Obtener última actualización
+  let ultimaActualizacion = parseInt(localStorage.getItem(KEY_LAST_UPDATE));
+  if (isNaN(ultimaActualizacion)) {
+    ultimaActualizacion = Date.now();
+    localStorage.setItem(KEY_LAST_UPDATE, ultimaActualizacion);
+  }
+
+  // Calcular cuántas unidades deben haber bajado en tiempo real sin página abierta
   const ahora = Date.now();
-  const tiempoRestanteMs = fechaFinal - ahora;
+  const tiempoTranscurrido = ahora - ultimaActualizacion;
+  const decrementos = Math.floor(tiempoTranscurrido / PASO_MS);
 
-  // Cada cuánto debe bajar 1 unidad
-  const PASO_MS = tiempoRestanteMs / valorInicial;
-
-  function obtenerValorActual() {
-    const ahora = Date.now();
-    if (ahora >= fechaFinal) return 0;
-
-    const tiempoPasado = fechaFinal - ahora;
-    const unidadesRestantes = Math.ceil(tiempoPasado / PASO_MS);
-
-    return Math.max(0, unidadesRestantes);
+  if (decrementos > 0) {
+    stock = Math.max(stock - decrementos, 0);
+    localStorage.setItem(KEY_STOCK, stock);
+    localStorage.setItem(KEY_LAST_UPDATE, ahora);
   }
 
-  function actualizarContador() {
-    const valor = obtenerValorActual();
-    elemento.textContent = valor.toLocaleString();
-  }
+  // Mostrar valor
+  elemento.textContent = stock.toLocaleString();
 
-  actualizarContador();
-  setInterval(actualizarContador, PASO_MS);
+  // Intervalo real de decremento
+  setInterval(() => {
+    if (stock > 0) {
+      stock--;
+      localStorage.setItem(KEY_STOCK, stock);
+      localStorage.setItem(KEY_LAST_UPDATE, Date.now());
+      elemento.textContent = stock.toLocaleString();
+    }
+  }, PASO_MS);
 })();
+
 
 // ====================== NOTIFICACIÓN DE COMPRA ======================
 (function () {
@@ -236,7 +239,7 @@ const ciudades = [
 
     texto.textContent = `${nombre} en ${ciudad} acaba de hacer una compra 🎁`;
 
-    cta.href = "https://wa.me/573023630113?text=Hola,%20quiero%20aprovechar%20las%20promos!"; // <-- Cambia tu WhatsApp
+    cta.href = "https://wa.me/573003023630113?text=Hola,%20quiero%20aprovechar%20las%20promos!"; // <-- Cambia tu WhatsApp
 
     // Cierra la anterior si existe
     notif.classList.remove("mostrar");
@@ -365,7 +368,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
   }
 });
-
-
-
-
