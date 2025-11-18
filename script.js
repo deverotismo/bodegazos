@@ -236,7 +236,7 @@ const ciudades = [
 
     texto.textContent = `${nombre} en ${ciudad} acaba de hacer una compra 🎁`;
 
-    cta.href = "https://wa.me/573003023630113?text=Hola,%20quiero%20aprovechar%20las%20promos!"; // <-- Cambia tu WhatsApp
+    cta.href = "https://wa.me/573023630113?text=Hola,%20quiero%20aprovechar%20las%20promos!"; // <-- Cambia tu WhatsApp
 
     // Cierra la anterior si existe
     notif.classList.remove("mostrar");
@@ -365,4 +365,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   }
 });
+
 
