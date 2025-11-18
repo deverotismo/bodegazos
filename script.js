@@ -151,7 +151,7 @@ steps.forEach(step => {
   const fechaFinal = new Date("2025-12-27T23:59:59").getTime();
 
   // ——— Stock fijo escogido por ti ———
-  const STOCK_INICIAL_FIJO = 130500; // <-- CAMBIA ESTE NÚMERO A TU STOCK REAL
+  const STOCK_INICIAL_FIJO = 864000; // <-- CAMBIA ESTE NÚMERO A TU STOCK REAL
 
   // Guardamos el stock inicial solo la primera vez
   let valorInicial = STOCK_INICIAL_FIJO;
@@ -365,6 +365,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   }
 });
+
 
 
 
