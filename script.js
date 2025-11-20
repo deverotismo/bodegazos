@@ -1,4 +1,5 @@
 // ========================= POPUP INICIAL =========================
+document.getElementById("popup-inicial").classList.add("show");
 document.addEventListener("DOMContentLoaded", () => {
   const popup = document.getElementById("popup-inicial");
   const cerrarPopup = document.getElementById("cerrarPopup");
@@ -17,6 +18,139 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target === popup) popup.style.display = "none";
   });
 });
+
+
+// ========================= RULETA =========================
+document.addEventListener("DOMContentLoaded", () => {
+
+  const canvas = document.getElementById("ruleta");
+  const ctx = canvas.getContext("2d");
+  const girarBtn = document.getElementById("girar-btn");
+
+  const premios = [
+  "Tableta gráfica Huion Inspiroy H430P",
+  "Combo Xtrem 5-en-1 Gamer Tech",
+  "Olla arrocera BLACK & DECKER 14 tazas RC514",
+  "Game Stick 4K",
+  "Proyector HY300",
+  "Samsung A16",
+  "Freidora IMUSA 5L",
+  "Consola Retro M8",
+  "Otra vez será",
+  "Otra vez será",
+  "Otra vez será",
+  "Otra vez será"
+  ];
+
+  const arc = (2 * Math.PI) / premios.length;
+  let anguloActual = 0;
+  let girando = false;
+
+  function dibujarRuleta() {
+    premios.forEach((premio, i) => {
+      let ang = arc * i;
+
+      ctx.beginPath();
+      ctx.fillStyle = i % 2 === 0 ? "#ff0040" : "#00d4ff";
+      ctx.moveTo(150, 150);
+      ctx.arc(150, 150, 150, ang, ang + arc);
+      ctx.fill();
+      ctx.save();
+
+      ctx.translate(150, 150);
+      ctx.rotate(ang + arc / 2);
+      ctx.textAlign = "right";
+      ctx.fillStyle = "#fff";
+      ctx.font = "16px Poppins";
+      ctx.fillText(premio, 140, 10);
+      ctx.restore();
+    });
+  }
+
+  function girar() {
+    if (girando) return;
+    girando = true;
+
+    let giro = Math.random() * 2000 + 2000;
+    let tiempo = 0;
+
+    function animar() {
+      tiempo += 20;
+      anguloActual += giro / 200;
+      ctx.clearRect(0, 0, 300, 300);
+      ctx.save();
+      ctx.translate(150, 150);
+      ctx.rotate(anguloActual * Math.PI / 180);
+      ctx.translate(-150, -150);
+      dibujarRuleta();
+      ctx.restore();
+
+      if (tiempo < 2000) {
+        requestAnimationFrame(animar);
+      } else {
+        girando = false;
+        const indice = Math.floor(((anguloActual / (2 * Math.PI)) % 1) * premios.length);
+        const premio = premios[premios.length - 1 - indice];
+        document.getElementById("popup-premio").classList.add("show");
+        const premioTexto = document.getElementById("premioTexto");
+        const btnReclamar = document.getElementById("btnReclamar");
+        const btnCerrarPremio = document.getElementById("btnCerrarPremio");
+
+        // Mostrar popup de resultado siempre
+        document.getElementById("btnCerrarPremio").addEventListener("click", () => {
+        // Cierra popup de premio
+      document.getElementById("btnCerrarPremio").addEventListener("click", () => {
+  // Cerrar popup del premio
+  document.getElementById("popup-premio").classList.remove("show");
+
+  // Cerrar popup de la ruleta también
+  const popupRuleta = document.getElementById("popup-inicial");
+  if (popupRuleta) popupRuleta.style.display = "none";
+});
+
+
+        // Cierra popup de la ruleta
+        document.getElementById("popup-inicial").style.display = "none";
+});
+
+
+        if (premio === "Otra vez será") {
+          premioTexto.textContent = "😅 ¡Otra vez será!";
+          btnReclamar.textContent = "Quiero otra oportunidad";
+          btnReclamar.href = "https://wa.me/573023630113?text=Hola,%20quiero%20otra%20oportunidad%20en%20la%20ruleta!";
+        } else {
+          premioTexto.textContent = "🎉 Obtuviste: " + premio;
+          btnReclamar.textContent = "Reclamar premio";
+          btnReclamar.href = "https://wa.me/573023630113?text=Hola,%20quiero%20reclamar%20mi%20premio!";
+        }
+
+      }
+    }
+
+    animar();
+  }
+
+  dibujarRuleta();
+  girarBtn.addEventListener("click", girar);
+
+document.getElementById("btnReclamar").addEventListener("click", () => {
+  window.open("https://wa.me/573023630113?text=Hola,%20quiero%20reclamar%20mi%20premio!", "_blank");
+});
+
+btnCerrarPremio.addEventListener("click", () => {
+  document.getElementById("popup-premio").classList.remove("show");
+  const popupRuleta = document.getElementById("popup-inicial");
+  if (popupRuleta) popupRuleta.style.display = "none";
+});
+
+  document.getElementById("popup-premio").classList.remove("show");
+});
+
+// ==================== GIRAR ====================
+
+function easeOut(t) {
+  return 1 - Math.pow(1 - t, 3);
+}
 
 
 // ==================== CONTADOR NAVIDEÑO ====================
@@ -368,4 +502,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   }
 });
+
 
