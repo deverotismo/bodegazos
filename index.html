@@ -9,15 +9,30 @@
 </head>
 <body>
 
-<!-- ========================= POPUP INICIAL ========================= -->
+<!-- ========================= POPUP INICIAL (RULETA)========================= -->
 <div id="popup-inicial" class="popup-overlay">
   <div class="popup-box">
-    <h2>🎄 ¡Aprovecha la promo! 🎁</h2>
-    <p>Habla con un asesor y aparta tus regalos con descuentos de hasta el 50% antes de que se acabe.</p>
-    <a target="_blank" href="https://wa.me/573023630113?text=Hola,%20quiero%20hablar%20con%20un%20asesor!" class="btn-wp">Hablar con asesor</a>
+
+    <div class="ruleta-container">
+      <h2 class="titulo-ruleta">¿Te sientes con suerte? 🍀</h2>
+      <canvas id="ruleta" width="300" height="300"></canvas>
+      <button id="girar-btn" class="girar-btn">
+        🎁 Girar y ganar
+      </button>
+    </div>
+
     <span id="cerrarPopup" class="cerrar-popup">&times;</span>
   </div>
 </div>
+
+<div id="popup-premio" class="popup-premio">
+  <div class="premio-box">
+    <h2 id="premioTexto"></h2>
+    <button id="btnReclamar" class="btn-wp">Reclamar premio</button>
+    <button id="btnCerrarPremio" class="btn-cerrar-premio">Saber más</button>
+  </div>
+</div>
+
 
 <!-- ========================= POPUP FLOTANTE ========================= -->
 <div id="popup-flotante" class="popup-flotante">
@@ -82,7 +97,7 @@
   <p>Promociones desde <strong>$70.000 COP</strong> en productos sorpresa de grandes marcas.</p>
   <p class="texto-mini">Al hacer clic verás el catálogo de productos directamente en WhatsApp.</p>
 
-  <a href="https://wa.me/573023630113?text=Hola,%20¿Qué%20productos%20puedo%20ganar?" target="_blank" class="btn-wp-large">
+  <a href="https://wa.me/573003023630113?text=Hola,%20¿Qué%20productos%20puedo%20ganar?" target="_blank" class="btn-wp-large">
     Ver catálogo en WhatsApp
   </a>
 </section>
@@ -140,7 +155,7 @@
 
 <!-- ========================= SECCIÓN BENEFICIOS ========================= -->
 <section class="section-beneficios">
-  <h2>💡 Beneficios </h2>
+  <h2>💡 Beneficios & Innovación</h2>
 
   <ul class="benef-list">
     <li>🎄 Acceso a promociones reales de grandes marcas.</li>
@@ -151,7 +166,7 @@
 
 <!-- ========================= CTA FINAL ========================= -->
 <section class="section-cta">
-  <a href="https://wa.me/573023630113?text=Hola,%20¿Cómo%20puedo%20pagar?" class="btn-wp-cta" target="_blank">
+  <a href="https://wa.me/573003023630113?text=Hola,%20¿Cómo%20puedo%20pagar?" class="btn-wp-cta" target="_blank">
     ¡Habla con un asesor y haz tu pago!
   </a>
 </section>
@@ -206,6 +221,5 @@
 <script src="script.js"></script>
 </body>
 </html>
-
 
 
